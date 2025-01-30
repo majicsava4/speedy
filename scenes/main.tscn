@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=3 uid="uid://cqh5kwms17mco"]
+
+[ext_resource type="PackedScene" uid="uid://bys2kus2ygau1" path="res://scenes/bg.tscn" id="1_503oi"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_fubkj"]
+[ext_resource type="PackedScene" uid="uid://c8vwfwsixohvo" path="res://scenes/ground.tscn" id="2_y13ls"]
+[ext_resource type="PackedScene" uid="uid://bg7uujhj1hri0" path="res://scenes/character.tscn" id="3_yr8h1"]
+[ext_resource type="PackedScene" uid="uid://dwmiob0q2gkrh" path="res://scenes/hud.tscn" id="5_trprj"]
+[ext_resource type="PackedScene" uid="uid://dv8u1hqdxfvwm" path="res://scenes/gameover.tscn" id="6_tgk1f"]
+[ext_resource type="AudioStream" uid="uid://biiadu5kofy4i" path="res://assets/xDeviruchi - 16 bit Fantasy & Adventure (2025)/Loopable + one shots/wav/05 - Battle 1.wav" id="7_l3awv"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_fubkj")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_503oi")]
+scale = Vector2(4, 3.1)
+transform = Transform2D(4, 0, 0, 3.1, 0, 0)
+
+[node name="Ground" parent="." instance=ExtResource("2_y13ls")]
+
+[node name="Player" parent="." instance=ExtResource("3_yr8h1")]
+position = Vector2(89, 484)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(578, 323)
+
+[node name="HUD" parent="." instance=ExtResource("5_trprj")]
+
+[node name="Gameover" parent="." instance=ExtResource("6_tgk1f")]
+process_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_l3awv")
+volume_db = -21.79
